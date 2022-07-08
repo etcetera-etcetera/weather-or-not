@@ -6,9 +6,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather or not</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="loader.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    Hello World
+    <div class="loader-wrapper">
+      <div class="loader loader-6"></div>
+    </div>
+
+    <main class="main loading">
+      <div class="mainWeather">
+        <nav class="nav">
+          <div class="location"></div>
+          <div class="date"></div>
+          <div class="moreStatsToggle">More Stats</div>
+        </nav>
+
+        <div class="moreStats">
+          <p>
+            This will include the percipitation, temperature changes, and
+            information about air and wind.
+          </p>
+          <p>This is <span>currently in development.</span></p>
+          <button
+            onclick="document.querySelector('.moreStats').classList.remove('active')"
+            class="btn"
+          >
+            Alright!
+          </button>
+        </div>
+
+        <div class="mainDisplay">
+          <div class="temp"></div>
+          <div class="status">
+            <p class="currentTime"></p>
+            <p class="currentDay"></p>
+            <p class="weatherStatus"></p>
+          </div>
+        </div>
+
+        <div class="week">
+          <div class="day active">
+            <div class="dayName">Sat</div>
+            <div class="dayTempWrapper"><span class="dayTemp">-4°</span></div>
+          </div>
+
+          <div class="day">
+            <div class="dayName">Sun</div>
+            <div class="dayTempWrapper"><span class="dayTemp">-4°</span></div>
+          </div>
+
+          <div class="day">
+            <div class="dayName">Mon</div>
+            <div class="dayTempWrapper"><span class="dayTemp">-4°</span></div>
+          </div>
+
+          <div class="day">
+            <div class="dayName">Tue</div>
+            <div class="dayTempWrapper"><span class="dayTemp">-4°</span></div>
+          </div>
+
+          <div class="day">
+            <div class="dayName">Wed</div>
+            <div class="dayTempWrapper"><span class="dayTemp">-4°</span></div>
+          </div>
+
+          <div class="day">
+            <div class="dayName">Thu</div>
+            <div class="dayTempWrapper"><span class="dayTemp">-4°</span></div>
+          </div>
+
+          <div class="day">
+            <div class="dayName">Fri</div>
+            <div class="dayTempWrapper"><span class="dayTemp">-4°</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="times">
+        <ul>
+          <li class="timeWrapper">
+            <span class="otherTime"></span>
+            <span class="timeTemp">24°</span>
+          </li>
+          <li class="timeWrapper">
+            <span class="otherTime">02:00</span>
+            <span class="timeTemp">24°</span>
+          </li>
+          <li class="timeWrapper">
+            <span class="otherTime">03:00</span>
+            <span class="timeTemp">24°</span>
+          </li>
+          <li class="timeWrapper">
+            <span class="otherTime">04:00</span>
+            <span class="timeTemp">24°</span>
+          </li>
+          <li class="timeWrapper">
+            <span class="otherTime">05:00</span>
+            <span class="timeTemp">24°</span>
+          </li>
+          <li class="timeWrapper">
+            <span class="otherTime">06:00</span>
+            <span class="timeTemp">24°</span>
+          </li>
+          <li class="timeWrapper">
+            <span class="otherTime">07:00</span>
+            <span class="timeTemp">24°</span>
+          </li>
+          <li class="timeWrapper">
+            <span class="otherTime">08:00</span>
+            <span class="timeTemp">24°</span>
+          </li>
+          <li class="timeWrapper">
+            <span class="otherTime">09:00</span>
+            <span class="timeTemp">24°</span>
+          </li>
+          <li class="timeWrapper">
+            <span class="otherTime">10:00</span>
+            <span class="timeTemp">25°</span>
+          </li>
+          <li class="timeWrapper">
+            <span class="otherTime">11:00</span>
+            <span class="timeTemp">27°</span>
+          </li>
+          <li class="timeWrapper">
+            <span class="otherTime">12:00</span>
+            <span class="timeTemp">24°</span>
+          </li>
+        </ul>
+      </div>
+    </main>
+
     <script src="script.js"></script>
   </body>
 </html>
