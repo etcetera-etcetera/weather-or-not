@@ -26,6 +26,7 @@ async function updateDisplay(location) {
   await updateMain(data);
   await updateTimes(data);
   await updateWeek(data);
+  await updateStats(data);
 
   document.querySelector(".loader-wrapper").classList.add("inactive");
   document.querySelector(".main").classList.remove("loading");
@@ -128,6 +129,84 @@ async function updateWeather(data, coords) {
   await updateMain(data);
   await updateTimes(data);
   await updateWeek(data);
+}
+
+async function updateStats(data) {
+  // const labels = ["January", "February", "March", "April", "May", "June"];
+  const formatNum = (num, places) => String(num).padStart(places, "0");
+
+  var labels = [];
+  var date = new Date(data.hourly[0].dt);
+  var time = date.getHours();
+  for (let i = 0; i < data.hourly.length; i++) {
+    time += 1;
+    if (time >= 24) time -= 24;
+    labels.push(`${formatNum(time, 2)}:00`);
+  }
+
+  var tempData = [];
+  var rainData = [];
+  for (let i = 0; i < data.hourly.length; i++) {
+    var hour = data.hourly[i];
+    tempData.push(Math.floor(hour.temp));
+    rainData.push(hour.pop * 100);
+  }
+
+  const chartData = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Precipitation",
+        backgroundColor: "rgba(55, 162, 235, .4)",
+        fill: true,
+        borderColor: "rgb(55, 162, 235)",
+        data: rainData,
+        yAxisID: "rainAxis",
+      },
+      {
+        label: "Temperature",
+        backgroundColor: "rgba(255, 99, 132, .5)",
+        fill: true,
+        borderColor: "rgb(255, 99, 132)",
+        data: tempData,
+        yAxisID: "y",
+      },
+    ],
+  };
+
+  const config = {
+    type: "line",
+    data: chartData,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          type: "linear",
+          position: "left",
+          ticks: {
+            callback: (value, index, values) => {
+              return `${value}°C`;
+            },
+          },
+        },
+        rainAxis: {
+          beginAtZero: true,
+          type: "linear",
+          position: "right",
+          grid: {
+            drawOnChartArea: false,
+          },
+          ticks: {
+            callback: (value, index, values) => {
+              return `${value}%`;
+            },
+          },
+        },
+      },
+    },
+  };
+
+  const myChart = new Chart(document.getElementById("myChart"), config);
 }
 
 getLocation();

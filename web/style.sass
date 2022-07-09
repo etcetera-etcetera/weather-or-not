@@ -42,11 +42,7 @@ body
       position: absolute
       z-index: 1000
       top: 0
-      left: -100vh
-      display: flex
-      flex-direction: column
-      justify-content: center
-      align-items: center
+      left: -200vh
       transition: .5s
       color: transparent
       
@@ -55,56 +51,66 @@ body
         left: 0
         color: black
 
-      .btn 
-        appearance: none
-        background-color: transparent
-        border: 2px solid #1A1A1A
-        border-radius: 15px
-        box-sizing: border-box
-        color: #3B3B3B
-        cursor: pointer
-        display: inline-block
-        font-weight: 600
-        margin: 0
-        outline: none
-        padding: 8px 12px
-        text-align: center
-        text-decoration: none
-        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1)
-        user-select: none
-        -webkit-user-select: none
-        touch-action: manipulation
-        will-change: transform
-        width: max-content
-        font-size: 13px
-        box-shadow: rgba(0, 0, 0, 0.25) 0 0px 15px
-        margin-top: 1rem
+      .chartDiv
+        height: calc(80vh + 40px + 1rem)
+        width: 75vw
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        
+        canvas
+          max-height: 80vh
+          height: 80vh
+          width: 75vw
+          max-width: 75vw
+
+        .btn 
+          appearance: none
+          background-color: transparent
+          border: 2px solid #1A1A1A
+          border-radius: 15px
+          box-sizing: border-box
+          color: #3B3B3B
+          cursor: pointer
+          display: inline-block
+          font-weight: 600
+          margin: 0
+          margin-top: 1rem
+          outline: none
+          padding: 8px 12px
+          text-align: center
+          text-decoration: none
+          transition: all 300ms cubic-bezier(.23, 1, 0.32, 1)
+          user-select: none
+          -webkit-user-select: none
+          touch-action: manipulation
+          will-change: transform
+          width: max-content
+          font-size: 13px
+          box-shadow: rgba(0, 0, 0, 0.25) 0 0px 15px
+          margin-top: 1rem
 
 
-      .btn:disabled 
-        pointer-events: none
+        .btn:disabled 
+          pointer-events: none
 
 
-      .btn:hover 
-        color: #fff
-        background-color: #1A1A1A
-        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px
-        transform: translateY(-2px)
+        .btn:hover 
+          color: #fff
+          background-color: #1A1A1A
+          box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px
+          transform: translateY(-2px)
 
 
-      .btn:active 
-        box-shadow: none
-        transform: translateY(0)
-
-
-      p
-        margin-block: .5rem
-        font-family: "mytupi", sans-serif
-
-        span
-          font-family: "mytupi-bold", sans-serif
-          color: orange
-    
+        .btn:active 
+          box-shadow: none
+          transform: translateY(0)
+            
     .mainWeather
       width: 80%
       min-width: 1000px

@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div class="loader-wrapper">
@@ -29,17 +30,15 @@
         </nav>
 
         <div class="moreStats">
-          <p>
-            This will include the percipitation, temperature changes, and
-            information about air and wind.
-          </p>
-          <p>This is <span>currently in development.</span></p>
-          <button
-            onclick="document.querySelector('.moreStats').classList.remove('active')"
-            class="btn"
-          >
-            Alright!
-          </button>
+          <div class="chartDiv">
+            <canvas id="myChart"></canvas>
+            <button
+              onclick="document.querySelector('.moreStats').classList.remove('active')"
+              class="btn"
+            >
+              Alright!
+            </button>
+          </div>
         </div>
 
         <div class="mainDisplay">
