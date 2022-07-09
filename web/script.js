@@ -132,7 +132,6 @@ async function updateWeather(data, coords) {
 }
 
 async function updateStats(data) {
-  // const labels = ["January", "February", "March", "April", "May", "June"];
   const formatNum = (num, places) => String(num).padStart(places, "0");
 
   var labels = [];
@@ -212,4 +211,8 @@ async function updateStats(data) {
 getLocation();
 document.querySelector(".moreStatsToggle").addEventListener("click", (e) => {
   document.querySelector(".moreStats").classList.add("active");
+});
+
+document.querySelector(".timesToggle").addEventListener("click", (e) => {
+  document.querySelector(".times").classList.add("active");
 });
