@@ -27,6 +27,7 @@
           <div class="location"></div>
           <div class="date"></div>
           <div class="moreStatsToggle">More Stats</div>
+          <div class="timesToggle hidden">12 Hour Forecast</div>
         </nav>
 
         <div class="moreStats">
@@ -139,6 +140,13 @@
             <span class="timeTemp">24°</span>
           </li>
         </ul>
+
+        <button
+          onclick="document.querySelector('.times').classList.remove('active')"
+          class="timesBtn"
+        >
+          Go Back &larr;
+        </button>
       </div>
     </main>
 
