@@ -15,6 +15,7 @@
 body {
   background: #FBF7FA;
   font-family: "mytupi", sans-serif;
+  overflow: hidden;
 }
 body main {
   display: flex;
