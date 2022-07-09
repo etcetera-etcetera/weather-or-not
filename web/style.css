@@ -1,0 +1,254 @@
+@font-face {
+  font-family: "mytupi";
+  src: url("./fonts/mytupi.ttf");
+}
+@font-face {
+  font-family: "mytupi-bold";
+  src: url("./fonts/mytupiBOLD.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #FBF7FA;
+  font-family: "mytupi", sans-serif;
+}
+body main {
+  display: flex;
+  flex-wrap: wrap;
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    display: block;
+  }
+}
+body main.loading {
+  display: none;
+  opacity: 0;
+}
+body main .moreStats {
+  opacity: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: -200vh;
+  transition: 0.5s;
+  color: transparent;
+}
+body main .moreStats.active {
+  opacity: 1;
+  left: 0;
+  color: black;
+}
+body main .moreStats .chartDiv {
+  height: calc(80vh + 40px + 1rem);
+  width: 75vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main .moreStats .chartDiv canvas {
+  max-height: 80vh;
+  height: 80vh;
+  width: 75vw;
+  max-width: 75vw;
+}
+body main .moreStats .chartDiv .btn {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  margin: 0;
+  margin-top: 1rem;
+  outline: none;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+  width: max-content;
+  font-size: 13px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 0px 15px;
+  margin-top: 1rem;
+}
+body main .moreStats .chartDiv .btn:disabled {
+  pointer-events: none;
+}
+body main .moreStats .chartDiv .btn:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+body main .moreStats .chartDiv .btn:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+body main .mainWeather {
+  width: 80%;
+  min-width: 1000px;
+  padding: 5vw;
+  position: relative;
+  height: 100vh;
+}
+body main .mainWeather .nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+body main .mainWeather .nav .moreStatsToggle {
+  cursor: pointer;
+}
+body main .mainWeather .mainDisplay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+body main .mainWeather .mainDisplay .temp {
+  font-size: clamp(8rem, 10vw, 15rem);
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  margin-right: 6rem;
+  position: relative;
+  line-height: 1em;
+}
+body main .mainWeather .mainDisplay .temp::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: #CCCDCD;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  right: -20px;
+  box-shadow: 0 0 0 12px #000, 0 0 0 50px #CCCDCD;
+  z-index: -1;
+}
+body main .mainWeather .mainDisplay .status {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+body main .mainWeather .mainDisplay .status .currentTime {
+  color: #888;
+}
+body main .mainWeather .mainDisplay .status .currentDay {
+  font-size: 3rem;
+  font-family: "mytupi-bold", sans-serif;
+}
+body main .mainWeather .mainDisplay .status .weatherStatus {
+  color: #888;
+}
+body main .mainWeather .week {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 5vw;
+  left: 5vw;
+  width: calc(100% - 10vw);
+}
+body main .mainWeather .week .day {
+  border-radius: 50px;
+  padding: 1.5rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main .mainWeather .week .day.active {
+  border: 1px solid #CCCDCC;
+}
+body main .mainWeather .week .day .dayName {
+  color: #888;
+  margin-bottom: 10px;
+}
+body main .mainWeather .week .day .dayTemp {
+  font-family: "mytupi-bold", sans-serif;
+  position: relative;
+}
+body main .mainWeather .week .day .dayTemp::before {
+  content: "";
+  height: 3px;
+  width: 3px;
+  border-radius: 100%;
+  border: 1px solid black;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -6px;
+}
+body main .times {
+  width: 20%;
+  min-width: 300px;
+  height: 100vh;
+  background: #fff;
+  position: relative;
+}
+body main .times ul {
+  list-style: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% + 20px), -50%);
+  height: max-content;
+  overflow-y: auto;
+  width: 100px;
+}
+body main .times ul::-webkit-scrollbar {
+  display: none;
+}
+body main .times ul li {
+  margin-block: 2rem;
+  font-size: 1.1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body main .times ul li.separator {
+  padding-bottom: 2rem;
+  position: relative;
+}
+body main .times ul li.separator::before {
+  content: "";
+  height: 1px;
+  width: calc((100% - 20px) / 2);
+  background: #707070;
+  position: absolute;
+  bottom: 0;
+  left: calc((100% - 20px) / 2);
+  transform: translate(-50%, -50%);
+  display: block;
+}
+body main .times ul li .timeTemp {
+  font-family: "mytupi-bold", sans-serif;
+  padding-right: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */
